@@ -13,7 +13,7 @@
                                 <li class="list-group-item">Type: {{ $project->type }}</li>
                                 <li class="list-group-item">Client: {{ $project->client }}</li>
                             </ul>
-                            <a href="#" class="btn btn-primary">Vedi</a>
+                            <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">Vedi</a>
                         </div>
                     </div>
                 </div>

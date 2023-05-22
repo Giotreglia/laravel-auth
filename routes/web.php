@@ -21,12 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index']);
 
 
+
+
 Route::middleware(['auth', 'verified'])
 ->name('admin.')
 ->prefix('admin')
 ->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
+    Route::resource('projects', ProjectController::class);
 });
 
 Route::middleware('auth')->group(function () {

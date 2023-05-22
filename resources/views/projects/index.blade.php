@@ -23,9 +23,16 @@
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->client }}</td>
                                 <td>{{ $project->type }}</td>
-                                <td>
-                                    <a class="btn btn-secondary"
-                                        href="{{ route('admin.projects.show', $project->id) }}">Dettagli</a>
+                                <td class="d-flex gap-1 justify-content-end">
+                                    <a class="btn btn-secondary" href="{{ route('admin.projects.show', $project->id) }}">
+                                        Dettagli
+                                    </a>
+                                    <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project->id) }}">
+                                        Modifica
+                                    </a>
+                                    <a class="btn btn-danger" href="{{ route('admin.projects.destroy', $project->id) }}">
+                                        Elimina
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
