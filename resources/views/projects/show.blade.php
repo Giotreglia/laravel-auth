@@ -13,10 +13,10 @@
                     <li class="list-group-item">Type: {{ $project->type }}</li>
                     <li class="list-group-item">Client: {{ $project->client }}</li>
                 </ul>
-                <a class="btn btn-primary my-2" href="{{ route('admin.projects.index', $project->id) }}">
+                <a class="btn btn-primary my-2" href="{{ route('admin.projects.index') }}">
                     Torna alla lista
                 </a>
-                <a class="btn btn-warning my-2" href="{{ route('admin.projects.index', $project->id) }}">
+                <a class="btn btn-warning my-2" href="{{ route('admin.projects.edit', $project->slug) }}">
                     Modifica
                 </a>
             </div>

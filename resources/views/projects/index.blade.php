@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+    <a class="btn btn-secondary" href="{{ route('admin.projects.create') }}">
+        Crea nuovo
+    </a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -8,6 +11,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Client</th>
                 <th scope="col">Type</th>
+                <th scope="col">Slug</th>
             </tr>
         </thead>
         <tbody>
@@ -17,16 +21,19 @@
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->client }}</td>
                     <td>{{ $project->type }}</td>
+                    <td>{{ $project->slug }}</td>
                     <td class="d-flex gap-1 justify-content-end">
-                        <a class="btn btn-secondary" href="{{ route('admin.projects.show', $project->id) }}">
+                        <a class="btn btn-secondary" href="{{ route('admin.projects.show', $project->slug) }}">
                             Dettagli
                         </a>
-                        <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project->id) }}">
+                        <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project->slug) }}">
                             Modifica
                         </a>
-                        <a class="btn btn-danger" href="{{ route('admin.projects.destroy', $project->id) }}">
-                            Elimina
-                        </a>
+                        <form action="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Elimina</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
