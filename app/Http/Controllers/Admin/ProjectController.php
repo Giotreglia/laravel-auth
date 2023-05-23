@@ -46,10 +46,11 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
-        $project = Project::findOrFail($id);
-        return view('projects.show', compact('project'));
+        dd($project);
+        /* $project = Project::findOrFail($id);
+        return view('projects.show', compact('project')); */
     }
 
     /**

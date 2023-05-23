@@ -1,10 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col">
                 <table class="table table-striped">
@@ -23,10 +20,6 @@
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->client }}</td>
                                 <td>{{ $project->type }}</td>
-                                <td>
-                                    <a class="btn btn-secondary"
-                                        href="{{ route('admin.projects.show', $project->id) }}">Dettagli</a>
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>

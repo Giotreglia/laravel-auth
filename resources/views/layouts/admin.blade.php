@@ -25,8 +25,52 @@
 
         @include('partials.header')
 
-        <main class="">
-            @yield('content')
+        <main>
+            <div class="container-fluid px-3">
+
+                <div class="d-flex justify-content-between">
+                    <div class="row w-100">
+                        <div class="col-2">
+                            <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary">
+                                <a href="/"
+                                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                                    <h2 class="fs-4 text-secondary my-4">
+                                        {{ __('Dashboard') }}
+                                    </h2>
+                                </a>
+                                <hr>
+                                <ul class="nav nav-pills flex-column mb-auto">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.dashboard') }}"
+                                            class="nav-link ms-bg-blue {{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}"
+                                            aria-current="page">
+                                            <svg class="bi pe-none me-2" width="16" height="16">
+                                                <use xlink:href="#home"></use>
+                                            </svg>
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.projects.index') }}"
+                                            class="nav-link ms-bg-blue link-body-emphasis {{ Route::currentRouteName() == 'admin.projects.index' ? 'active' : '' }}">
+                                            <svg class="bi pe-none me-2" width="16" height="16">
+                                                <use xlink:href="#speedometer2"></use>
+                                            </svg>
+                                            Indice
+                                        </a>
+                                    </li>
+                                </ul>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-10 pt-4">
+
+                            @yield('content')
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>
